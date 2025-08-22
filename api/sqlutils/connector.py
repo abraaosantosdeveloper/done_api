@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 hostname = os.getenv("DB_HOST")
-porta = os.getenv("DB_PORT")
+porta = int(os.getenv("DB_PORT"))
 usuario = os.getenv("DB_USER")
 senha = os.getenv("DB_PASSWORD")
 banco = os.getenv("DB_NAME")
