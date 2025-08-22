@@ -4,11 +4,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-hostname = os.getenv("DB_HOST", "127.0.0.1")
-porta = os.getenv("DB_PORT", "3306")
-usuario = os.getenv("DB_USER", "root")
-senha = os.getenv("DB_PASSWORD", "")
-banco = os.getenv("DB_NAME", "done_db")
+hostname = os.getenv("DB_HOST")
+porta = os.getenv("DB_PORT")
+usuario = os.getenv("DB_USER")
+senha = os.getenv("DB_PASSWORD")
+banco = os.getenv("DB_NAME")
 
 
 def conectar():

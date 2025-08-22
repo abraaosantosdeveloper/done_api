@@ -12,7 +12,5 @@ def after_request(response):
         response.status_code = 200
     return response
 
-app.register_blueprint(task_bp, url_prefix='/tasks')
+app.register_blueprint(task_bp)
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
