@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from workers.taskworker import get_all_tasks
 
 
-task_bp = Blueprint('book', __name__)
+task_bp = Blueprint('task', __name__)
 
 @task_bp.route('/', methods=["GET", "OPTIONS"])
 def get_tasks():
