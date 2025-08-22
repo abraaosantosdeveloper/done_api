@@ -1,26 +1,15 @@
 import mysql.connector
+import os
+from dotenv import load_dotenv
 
-# o computador em que o banco de dados está rodando
-# se estiver no mesmo computador que o sistema está rodando,
-# pode ser # localhost ou 127.0.0.1
-# A Porta padrão é 3306, mas verifique para ter certeza 
-# se o seu sistema não está rodando em outra porta.
-hostname = "127.0.0.1"
-porta = "3306"
+load_dotenv()
 
-# as credenciais de acesso do
-# SGBD que o sistema vai utilizar
-# você pode criar um usuário e senha
-# só pra isso ou, no caso, usar o
-# usuário raiz do SGBD
-usuario = "root"
-senha =""
+hostname = os.getenv("DB_HOST", "127.0.0.1")
+porta = os.getenv("DB_PORT", "3306")
+usuario = os.getenv("DB_USER", "root")
+senha = os.getenv("DB_PASSWORD", "")
+banco = os.getenv("DB_NAME", "done_db")
 
-# o nome do esquema de banco de dados
-# que o sistema estará utilizando
-# aqui você deve preencher o nome
-# que você deu ao seu banco de dados.
-banco = "done_db"
 
 def conectar():
     conexao = mysql.connector.connect(host=hostname,
