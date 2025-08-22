@@ -17,6 +17,3 @@ def after_request(response):
 # registra o blueprint de tasks
 app.register_blueprint(task_bp)
 
-# só roda com app.run localmente
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
