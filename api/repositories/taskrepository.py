@@ -1,4 +1,4 @@
-import sqlutils.connector as db
+import api.sqlutils.connector as db
 
 def getTasks():
     """

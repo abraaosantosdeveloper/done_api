@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from controllers.taskcontroller import task_bp
+from api.controllers.taskcontroller import task_bp
 
 app = Flask(__name__)
 

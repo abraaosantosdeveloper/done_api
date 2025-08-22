@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from workers.taskworker import get_all_tasks
+from api.workers.taskworker import get_all_tasks
 
 
 task_bp = Blueprint('task', __name__)
