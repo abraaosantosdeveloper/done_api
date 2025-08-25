@@ -2,9 +2,9 @@ import api.sqlutils.connector as db
 
 # Classe tarefa
 class Tarefa:
-    def __init__(self, id, titulo, status:int):
+    def __init__(self, id, nome_tarefa, status:int):
         self.id = id
-        self.titulo = titulo
+        self.nome_tarefa = nome_tarefa
         self.status = status
     
     @staticmethod
@@ -15,14 +15,14 @@ class Tarefa:
         return [
             Tarefa(
                 id=tarefa[0],
-                titulo=tarefa[1],
-                concluida=tarefa[2]
+                nome_tarefa=tarefa[1],
+                status=tarefa[2]
             ) for tarefa in tarefas
         ]
-    
+
     def to_dict(self):
         return {
             "id": self.id,
-            "titulo": self.titulo,
-            "concluida": self.concluida
+            "nome_tarefa": self.nome_tarefa,
+            "status": self.status
         }
