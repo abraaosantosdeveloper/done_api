@@ -26,3 +26,4 @@ class Tarefa:
             "nome_tarefa": self.nome_tarefa,
             "status": self.status
         }
+        
