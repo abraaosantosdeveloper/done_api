@@ -22,10 +22,10 @@ def getTasks():
 
 
 def newTask(info_tarefa):
-    query = "INSERT INTO tarefas (nome_tarefa, status) VALUES (%s, 0)"
+    query = "INSERT INTO tarefas (nome_tarefa) VALUES (%s, %s)"
     
     params = (
-        info_tarefa['nome_tarefa'],
+        info_tarefa['nome_tarefa'], 0
     )
     
     try:

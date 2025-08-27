@@ -22,19 +22,40 @@ def conectar():
 # use essa função quando for executar um comando
 # no banco de dados que precise alterar os dados
 # lá dentro.
-def executarComando(comando:str):
-    conexao = conectar()
-    cursor = conexao.cursor()
-    cursor.execute(comando)
-    conexao.commit()
-    conexao.close()
+def executarComando(comando: str, params=None) -> bool:
+    try:
+        conexao = conectar()
+        cursor = conexao.cursor()
+        
+        if not params:
+            cursor.execute(comando)
+        else:
+            cursor.execute(comando, params)
+            
+        conexao.commit()
+        conexao.close()
+        return True
+        
+    except mysql.connector.Error as e:
+        print(f"Erro ao executar comando: {e}")
+        return False
 
 # use essa função quando for executar uma consulta,
 # ou seja, um comando que retorna dados do banco.
-def executarConsulta(consulta:str) -> list:
-    conexao = conectar()
-    cursor = conexao.cursor()
-    cursor.execute(consulta)
-    resultado = cursor.fetchall()
-    conexao.close()
-    return resultado
+def executarConsulta(consulta: str, params=None) -> list:
+    try:
+        conexao = conectar()
+        cursor = conexao.cursor()
+        
+        if not params:
+            cursor.execute(consulta)
+        else:
+            cursor.execute(consulta, params)
+            
+        resultado = cursor.fetchall()
+        conexao.close()
+        return resultado
+        
+    except mysql.connector.Error as e:
+        print(f"Erro ao executar consulta: {e}")
+        return []
