@@ -11,3 +11,15 @@ def get_tasks():
         
     tasks = get_all_tasks()
     return jsonify(tasks), 200
+
+@task_bp.route('/', methods=["POST", "OPTIONS"])
+def create_task():
+    if request.method == "OPTIONS":
+        return jsonify({}), 200
+    
+    data = request.get_json()
+    if data is None or 'nome_tarefa' not in data:
+        return jsonify({"error": "Requisição deve ser JSON válido com Content-Type: application/json"}), 400
+    
+    result, status_code = newTask(data)
+    return jsonify(result), status_code
