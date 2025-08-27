@@ -1,25 +1,61 @@
-from flask import Blueprint, jsonify, request
-from api.workers.taskworker import get_all_tasks
+from flask import Blueprint, request, jsonify
+from api.repositories.taskrepository import getTasks, newTask
 
 
-task_bp = Blueprint('task', __name__)
+task_bp = Blueprint('tasks', __name__)
 
-@task_bp.route('/', methods=["GET", "OPTIONS"])
-def get_tasks():
-    if request.method == "OPTIONS":
-        return jsonify({}), 200
-        
-    tasks = get_all_tasks()
-    return jsonify(tasks), 200
+@task_bp.route('/tasks', methods=['GET'])
+def listar_tarefas():
+    """
+    Lista todas as tarefas
+    ---
+    tags:
+      - Tarefas
+    responses:
+      200:
+        description: Lista de tarefas encontradas
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID da tarefa
+              nome_tarefa:
+                type: string
+                description: Nome da tarefa
+              status:
+                type: integer
+                description: Status da tarefa (0 = pendente, 1 = concluída)
+    """
+    return jsonify(getTasks())
 
-@task_bp.route('/', methods=["POST", "OPTIONS"])
-def create_task():
-    if request.method == "OPTIONS":
-        return jsonify({}), 200
-    
-    data = request.get_json()
-    if data is None or 'nome_tarefa' not in data:
-        return jsonify({"error": "Requisição deve ser JSON válido com Content-Type: application/json"}), 400
-    
-    result, status_code = newTask(data)
-    return jsonify(result), status_code
+@task_bp.route('/newTask', methods=['POST'])
+def criar_tarefa():
+    """
+    Cria uma nova tarefa
+    ---
+    tags:
+      - Tarefas
+    parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            nome_tarefa:
+              type: string
+              description: Nome da tarefa a ser criada
+    responses:
+      201:
+        description: Tarefa criada com sucesso
+      400:
+        description: Erro ao criar tarefa
+    """
+    info = request.get_json()
+    result = newTask(info)
+    if result:
+        return jsonify({"message": "Tarefa criada com sucesso"}), 201
+    return jsonify({"message": "Erro ao criar tarefa"}), 400
