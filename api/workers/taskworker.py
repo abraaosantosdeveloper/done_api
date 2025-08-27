@@ -10,4 +10,10 @@ def get_all_tasks():
         return []
 
 def create_task(data):
-    pass
+    try:
+        result = newTask(data)
+        return result
+    except Exception as e:
+        print(f"Erro ao criar tarefa: {e}")
+        traceback.print_exc()
+        return None
