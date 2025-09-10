@@ -8,7 +8,7 @@ def realizar_login():
     """
     Função de login - Realiza login do usuário
     ---
-    Tags:
+    tags:
         - Usuários
     parameters:
       - in: body
@@ -22,8 +22,7 @@ def realizar_login():
               description: Email cadastrado para o usuário
             senha:
               type: string
-                description: Senha cadastrada pelo usuário
-
+              description: Senha cadastrada pelo usuário
     responses:
       200:
         description: Informações de usuário logado
@@ -53,11 +52,11 @@ def realizar_login():
               hash_senha:
                 type: string
                 description: hash da senha cadastrada pelo usuário
-        400:
+      400:
         description: Erro ao realizar login
-        401:
+      401:
         description: Credenciais inválidas
-        500:
+      500:
         description: Erro interno do servidor             
     """
     
