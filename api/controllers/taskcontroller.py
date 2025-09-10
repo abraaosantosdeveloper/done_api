@@ -28,6 +28,24 @@ def listar_tarefas():
               status:
                 type: integer
                 description: Status da tarefa (0 = pendente, 1 = concluída)
+      400:
+        description: Erro ao listar tarefas
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Erro ao listar tarefas (nada encontrado)
+                    
+      500:
+        description: Erro interno do servidor
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Erro interno do servidor
+      
     """
     return jsonify(getTasks())
 
@@ -51,8 +69,28 @@ def criar_tarefa():
     responses:
       201:
         description: Tarefa criada com sucesso
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Tarefa Criada com sucesso
       400:
         description: Erro ao criar tarefa
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Erro ao criar tarefa
+      500:
+        description: Erro interno do servidor
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Erro interno do servidor
     """
     info = request.get_json()
     result = newTask(info)

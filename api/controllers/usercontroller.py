@@ -39,10 +39,34 @@ def realizar_login():
                 description: Hash da senha cadastrada pelo usuário
       400:
         description: Erro ao realizar login
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Informações não encontradas
       401:
         description: Credenciais inválidas
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Informações inválidas
       500:
-        description: Erro interno do servidor             
+        description: Erro interno do servidor
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Erro interno do servidor         
     """
     
     # info = request.get_json()
