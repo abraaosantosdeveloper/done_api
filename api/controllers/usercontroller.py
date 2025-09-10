@@ -9,7 +9,7 @@ def realizar_login():
     Função de login - Realiza login do usuário
     ---
     tags:
-        - Usuários
+      - Usuários
     parameters:
       - in: body
         name: body
