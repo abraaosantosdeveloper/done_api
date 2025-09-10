@@ -1,8 +1,9 @@
 class Usuario:
-    def __init__(self, id, nome, apelido, email, hash_senha,):
+    def __init__(self, id, nome, nascimento, apelido, email, hash_senha):
         self.id = id
         self.nome = nome
         self.apelido = apelido
+        self.data_nascimento = nascimento
         self.email = email
         self.hash_senha = hash_senha
     
