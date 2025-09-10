@@ -31,27 +31,12 @@ def realizar_login():
           items:
             type: object
             properties:
-              id:
-                type: integer
-                description: ID do usuário
-              admin:
-                type: integer
-                description: Usuário administrador (0 = usuário padrão, 1 = usuário administrador)
-              nome:
-                type: string
-                description: Nome do usuário
-              nascimento:
-                type: string
-                description: Data de nascimento do usuário
-              apelido:
-                type: string
-                description: Nickname de usuário(Apelido)
               email:
                 type: string
                 description: Email cadastrado para o usuário
               hash_senha:
                 type: string
-                description: hash da senha cadastrada pelo usuário
+                description: Hash da senha cadastrada pelo usuário
       400:
         description: Erro ao realizar login
       401:
