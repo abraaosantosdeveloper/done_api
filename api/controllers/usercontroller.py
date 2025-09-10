@@ -8,6 +8,8 @@ def realizar_login():
     """
     Função de login - Realiza login do usuário
     ---
+    Tags:
+        - Usuários
     responses:
       200:
         description: Informações de usuário logado
