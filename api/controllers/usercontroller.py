@@ -6,8 +6,8 @@ user_bp = Blueprint('user', __name__)
 @user_bp.route('/login', methods=['POST'])
 def realizar_login():
     """
-        Função de login - Realiza login do usuário
-        ---
+    Função de login - Realiza login do usuário
+    ---
     responses:
       200:
         description: Informações de usuário logado
