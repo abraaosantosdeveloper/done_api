@@ -17,9 +17,13 @@ def realizar_login():
         schema:
           type: object
           properties:
-            Cadastro de usuário:
+            email:
               type: string
-              description: Função de cadastro de usuário
+              description: Email cadastrado para o usuário
+            senha:
+              type: string
+                description: Senha cadastrada pelo usuário
+
     responses:
       200:
         description: Informações de usuário logado
@@ -49,7 +53,12 @@ def realizar_login():
               hash_senha:
                 type: string
                 description: hash da senha cadastrada pelo usuário
-                        
+        400:
+        description: Erro ao realizar login
+        401:
+        description: Credenciais inválidas
+        500:
+        description: Erro interno do servidor             
     """
     
     # info = request.get_json()
