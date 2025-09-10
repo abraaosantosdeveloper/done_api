@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flasgger import Swagger
 from api.controllers.taskcontroller import task_bp
+from api.controllers.usercontroller import user_bp
 
 app = Flask(__name__)
 
@@ -45,4 +46,5 @@ def after_request(response):
 
 # registra o blueprint de tasks
 app.register_blueprint(task_bp)
+app.register_blueprint(user_bp)
 
