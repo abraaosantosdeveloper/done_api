@@ -7,9 +7,7 @@ user_bp = Blueprint('user', __name__)
 def realizar_login():
     """
         Função de login - Realiza login do usuário
-        
-        tags:
-      - Tarefas
+        ---
     responses:
       200:
         description: Informações de usuário logado

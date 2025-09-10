@@ -25,9 +25,9 @@ swagger_config = {
 template = {
     "swagger": "2.0",
     "info": {
-        "title": "API de Tarefas",
-        "description": "API para gerenciamento de tarefas",
-        "version": "1.0.0"
+        "title": "API - Done App",
+        "description": "API do aplicativo de Gerenciamento de tarefas",
+        "version": "1.0.1"
     }
 }
 
