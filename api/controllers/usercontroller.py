@@ -10,6 +10,16 @@ def realizar_login():
     ---
     Tags:
         - Usuários
+    parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            Cadastro de usuário:
+              type: string
+              description: Função de cadastro de usuário
     responses:
       200:
         description: Informações de usuário logado
