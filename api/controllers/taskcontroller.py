@@ -83,9 +83,6 @@ def criar_tarefa():
             message:
               type: string
               description: Erro ao criar tarefa
-          examples:
-             application/json:
-               message: "Erro ao criar tarefa"
       500:
         description: Erro interno do servidor
         schema:
@@ -94,9 +91,6 @@ def criar_tarefa():
             message:
               type: string
               description: Erro interno do servidor
-          examples:
-             application/json:
-               message: "Erro interno..."
     """
     info = request.get_json()
     result = newTask(info)
