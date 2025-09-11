@@ -76,5 +76,66 @@ def realizar_login():
     # return jsonify({"message": "Erro ao realizar login..."}), 400
     pass
 
+@user_bp.route('/signup', methods=['POST'])
 def cadastrar_usuario():
-    pass
+    """
+    
+    Função de cadastro - Cadastra novo usuário
+    ---
+    tags:
+      - Usuários
+    
+    parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+              description: Email para cadastro do usuário
+            senha:
+              type: string
+              description: Senha para cadastro do usuário
+    responses:
+      201:
+        description: Usuário cadastrado com sucesso
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Mensagem de sucesso
+      400:
+        description: Erro ao cadastrar usuário
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Informações inválidas ou já existentes
+      500:
+        description: Erro interno do servidor
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Erro interno do servidor
+        
+    """
+  
+    info = request.get_json()
+    result, error = userSignup(info['email'], info['senha'])
+    if result:
+        return jsonify({"message": "Usuário cadastrado!"}), 201
+    elif error:
+        return jsonify({"error": error}), 400
+    return jsonify({"error": "Erro ao cadastrar usuário..."}), 500
