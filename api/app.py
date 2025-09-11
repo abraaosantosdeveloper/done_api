@@ -1,8 +1,8 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flasgger import Swagger
-from api.controllers.taskController import task_bp
-from api.controllers.userController import user_bp
+from api.controllers.task_controller import task_bp
+from api.controllers.user_controller import user_bp
 
 app = Flask(__name__)
 

@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from api.repositories.taskRepository import getTasks, newTask
+from api.workers.task_worker import getTasks, newTask
 
 
 task_bp = Blueprint('tasks', __name__)

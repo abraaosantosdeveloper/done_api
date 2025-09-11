@@ -1,4 +1,4 @@
-from api.repositories.taskrepository import getTasks, newTask
+from api.repositories.task_repository import getTasks, newTask
 import traceback
 
 def get_all_tasks():

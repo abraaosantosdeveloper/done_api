@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from api.repositories.userRepository import userLogin, userSignup
+from api.workers.user_worker import login, signup
 
 user_bp = Blueprint('user', __name__)
 
@@ -131,11 +131,4 @@ def cadastrar_usuario():
                 description: Erro interno do servidor
         
     """
-  
-    info = request.get_json()
-    result, error = userSignup(info['email'], info['senha'])
-    if result:
-        return jsonify({"message": "Usuário cadastrado!"}), 201
-    elif error:
-        return jsonify({"error": error}), 400
-    return jsonify({"error": "Erro ao cadastrar usuário..."}), 500
+    pass
