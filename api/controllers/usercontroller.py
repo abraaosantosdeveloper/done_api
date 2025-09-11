@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from api.repositories.taskrepository import getTasks, newTask
+from api.repositories.userRepository import userLogin, userSignup
 
 user_bp = Blueprint('user', __name__)
 
@@ -76,3 +76,5 @@ def realizar_login():
     # return jsonify({"message": "Erro ao realizar login..."}), 400
     pass
 
+def cadastrar_usuario():
+    pass
