@@ -1,4 +1,4 @@
-from api.models.user import User
+from api.models.user import Usuario
 import api.sqlutils.connector as db
 import bcrypt
 
@@ -14,7 +14,7 @@ def userLogin(email, senha):
     stored_hashed_senha = usuario[2]
     
     if bcrypt.checkpw(senha.encode('utf-8'), stored_hashed_senha.encode('utf-8')):
-        user_obj = User(
+        user_obj = Usuario(
             id=usuario[0],
             email=usuario[1],
             hash_senha=usuario[2]
